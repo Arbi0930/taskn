@@ -60,6 +60,7 @@ app.post('/upload', upload.array('files'), (req, res) => {
         .then((data) => {
             data.forEach((uploadResult) => {
                 console.log("amjilttai hadgalalaa");
+                res.redirect('/')
             });
             res.status(200).send("amjilttai hadgalalaa");
         })
@@ -67,6 +68,7 @@ app.post('/upload', upload.array('files'), (req, res) => {
             console.error("Amjiltgv bollo:", err);
             res.status(500).send("zurag hadgalahad aldaa garlaa");
         });
+
 });
 
 app.listen(5000, () => {
