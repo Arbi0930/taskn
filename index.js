@@ -20,6 +20,27 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
+app.get('/files',(req,res)=>{
+    const s3 = new AWS.S3()
+
+    const listParams = {
+        Bucket: BUCKETNAME
+    }
+
+    s3.listObjectsV2(listParams,(err,data)=>{
+        if(err){
+            console.error("aldaa",err)
+            return res.status(500).send("internal error")
+        }
+        const files = data.Contents.map((file)=>({
+            name: file.Key,
+            url: `https://${BUCKETNAME}.s3.amazonaws.com/${file.Key}`
+        }))
+        res.json(files)
+
+    })
+})
+
 app.post('/upload', upload.array('files'), (req, res) => {
     if (!req.files || req.files.length === 0) {
         return res.status(400).send("File missing");
