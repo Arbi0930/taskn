@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
 </head>
+<script src="/fetch/post/postUser.js"></script>
 <body>
     <div class="container">
         <br>
@@ -16,10 +16,25 @@
         <br>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <div class="form-group">
+                <label for="files">Зурганууд:</label>
                 <input type="file" name="files" class="form-control">
             </div>
             <div class="form-group">
-                <button class="btn btn block btn-danger">
+                <label for="name">Нэр:</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="gender">Хүйс:</label>
+                <select name="gender" class="form-control">
+                    <option value="male">Эрэгтэй</option>
+                    <option value="female">Эмэгтэй</option>
+                </select>
+                <label for="RD">Регистерийн дугаар:</label>
+                <input type="text" name="RD" class="form-control">
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger">
                     Иргэний үнэмлэхний зураг оруулах
                 </button>
             </div>
@@ -36,9 +51,7 @@
             <tbody id="fileTableBody"></tbody>
         </table>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="script.js">
-    
-</script>
 </html>
