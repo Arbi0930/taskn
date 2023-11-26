@@ -8,8 +8,8 @@ app.use(express.static('public'));
 const BUCKETNAME = "mytaskmcs";
 
 AWS.config.update({
-    accessKeyId: "AKIA5YFY2CBLCIEIUZVF",
-    secretAccessKey: "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",
+    accessKeyId: "AKIA5YFY2CBLMZLFN7W3",
+    secretAccessKey: "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",
     region: "us-east-1"
 });
 
@@ -58,18 +58,15 @@ app.post('/upload', upload.array('files'), (req, res) => {
 
     Promise.all(uploadPromises)
         .then((data) => {
-            data.forEach((uploadResult) => {
-                console.log("amjilttai hadgalalaa");
-                res.redirect('/')
-            });
-            res.status(200).send("amjilttai hadgalalaa");
+            console.log("amjilttai");
+            res.status(200).send("amjilttai");
         })
         .catch((err) => {
-            console.error("Amjiltgv bollo:", err);
-            res.status(500).send("zurag hadgalahad aldaa garlaa");
+            console.error("amjiltgv", err);
+            res.status(500).send("amjiltgv");
         });
-
 });
+
 
 app.listen(5000, () => {
     console.log('port 5000');
